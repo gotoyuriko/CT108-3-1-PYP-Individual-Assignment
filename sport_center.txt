@@ -1,0 +1,22 @@
+[
+  {
+    "Sport Center Code":"SPh9sdR8",
+    "Sport Center Name":"Nike Sport Center"
+  },
+  {
+    "Sport Center Code":"SPc1Cd3K",
+    "Sport Center Name":"Decathlon Sport Center"
+  },
+  {
+    "Sport Center Code":"SPIf28Ar",
+    "Sport Center Name":"Puma Sport Center"
+  },
+  {
+    "Sport Center Code":"SPUzaQMI",
+    "Sport Center Name":"Adidas Sport Center"
+  },
+  {
+    "Sport Center Code":"SPn8Hk4D",
+    "Sport Center Name":"Asia Pacific Sport Center"
+  }
+]

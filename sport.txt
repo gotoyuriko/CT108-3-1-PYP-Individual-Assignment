@@ -1,0 +1,52 @@
+[
+  {
+    "Sport Code":"Cbxp",
+    "Sport Name":"Swimming",
+    "Description": "Swimming is an individual or team racing sport \n\tthat requires the use of one's entire body to move through water."
+  },
+  {
+    "Sport Code":"yASh",
+    "Sport Name":"Badminton",
+    "Description": "Badminton is a racquet sport played using racquets \n\tto hit a shuttlecock across a net."
+  },
+  {
+    "Sport Code":"QrpI",
+    "Sport Name":"Football",
+    "Description": "Football is a family of team sports that involve, \n\tto varying degrees, kicking a ball to score a goal."
+  },
+  {
+    "Sport Code":"S6qp",
+    "Sport Name":"Archery",
+    "Description": "Archery is the art, sport, practice, or skill of \n\tusing a bow to shoot arrows."
+  },
+  {
+    "Sport Code":"DCLX",
+    "Sport Name":"Gymnastics",
+    "Description": "Gymnastics is a sport that includes physical exercises \n\trequiring balance, strength, flexibility, agility, coordination, and endurance."
+  },
+  {
+    "Sport Code":"k80d",
+    "Sport Name":"Volleyball",
+    "Description": "Volleyball is a team sport in which two teams of \n\tsix players are separated by a net."
+  },
+  {
+    "Sport Code":"Nyex",
+    "Sport Name":"Basketball",
+    "Description": "Volleyball is a team sport in which two teams of \n\tsix players are separated by a net."
+  },
+  {
+    "Sport Code":"0bpa",
+    "Sport Name":"Cricket",
+    "Description": "Basketball is a game played between two teams of \n\tfive players each on a rectangular court, usually indoors."
+  },
+  {
+    "Sport Code":"PedA",
+    "Sport Name":"Tennis",
+    "Description": "Tennis is a racket sport that can be played individually \n\tagainst a single opponent or between two teams of two players each."
+  },
+  {
+    "Sport Code":"DBUj",
+    "Sport Name":"Table Tennis",
+    "Description": "Table tennis is a sport in which two or four players hit \n\ta lightweight ball, back and forth across a table using small rackets."
+  }
+]
