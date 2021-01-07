@@ -81,6 +81,6 @@ try:
     else:
         print("\n\tPlease enter 1 ,2 or 3")
 except:
-    print("\n\t"+user, "is not a number")
+    print("\n\t"+str(user), "is not a number")
 
 print("\n★★★ See You ★★★")
