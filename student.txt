@@ -1,20 +1,20 @@
 [
   {
-    "Student ID": "yurikogoto@gmail.com", 
+    "Student ID": "naruto@mail.com", 
     "Password": "wL8mpQ", 
-    "Name": "Yuriko Goto",
-    "Coach ID" : "CO3KJUZBNU"
+    "Name": "Sasuke", 
+    "Coach ID": "CO3KJUZBNU"
   }, 
   {
-    "Student ID": "ramusess@gmail.com", 
+    "Student ID": "sasuke@mail.com", 
     "Password": "j2snSc", 
-    "Name": "Ramusess Goto",
-    "Coach ID" : "COABC4E6B3"
-  }, 
+    "Name": "Naruto", 
+    "Coach ID": "COABC4E6B3"
+  },
   {
-    "Student ID": "salahdin@gmail.com", 
+    "Student ID": "sakura@mail.com", 
     "Password": "u28kP3", 
-    "Name": "Salahdin Goto",
-    "Coach ID" : "CO7E44076D"
+    "Name": "Sakura", 
+    "Coach ID": "CO7E44076D"
   }
   ]

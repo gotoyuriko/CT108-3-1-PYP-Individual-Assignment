@@ -14,19 +14,19 @@
   {
     "Coach ID": "CO50B6F44A",
     "Count" : 4,
-    "Rating" : 4,
-    "Actual Rating" : "3.7"
+    "Rating" : 3,
+    "Actual Rating" : "3.4"
   },
   {
     "Coach ID": "CO3KJUZBNU",
     "Count" : 3,
-    "Rating" : 3,
-    "Actual Rating" : "2.6"
+    "Rating" : 2,
+    "Actual Rating" : "1.7"
   },
   {
     "Coach ID": "COBFX5MU88",
     "Count" : 2,
-    "Rating" : 2,
-    "Actual Rating" : "1.7"
+    "Rating" : 4,
+    "Actual Rating" : "4.2"
   }
 ]

@@ -85,3 +85,17 @@ def rating_write(rating_list):
     with open("rating.txt", "w") as ratingf:
         encode_rating = json.dumps(rating_list)
         ratingf.write(encode_rating)
+
+
+def feedback_read():
+    with open("feedback.txt") as feedbackf:
+        feedback_data = feedbackf.read()
+        feedback_list = json.loads(feedback_data)
+
+    return feedback_list
+
+
+def feedback_write(feedback_list):
+    with open("feedback.txt", "w") as feedbackf:
+        encode_rating = json.dumps(feedback_list)
+        feedbackf.write(encode_rating)

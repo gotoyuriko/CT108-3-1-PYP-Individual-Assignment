@@ -39,11 +39,11 @@
     "Sport Center Name": "Puma Sport Center", 
     "Sport Code": "QrpI", 
     "Sport Name": "Football", 
-    "Rating": 4
+    "Rating": 3
   }, 
   {
     "Coach ID": "CO3KJUZBNU", 
-    "Name": "Miley Cyrus", 
+    "Name": "Taylor Swift", 
     "Date Joined": "2018/10/03", 
     "Date Terminated": "2022/11/03", 
     "Horly Rate (RM/h)": 320, 
@@ -53,11 +53,11 @@
     "Sport Center Name": "Nike Sport Center", 
     "Sport Code": "DCLX", 
     "Sport Name": "Gymnastics", 
-    "Rating": 3
+    "Rating": 2
   }, 
   {
     "Coach ID": "COBFX5MU88", 
-    "Name": "John Lenon", 
+    "Name": "Ariana Grande", 
     "Date Joined": "2019/10/27", 
     "Date Terminated": "2023/08/11", 
     "Horly Rate (RM/h)": 250, 
@@ -67,6 +67,6 @@
     "Sport Center Name": "Adidas Sport Center", 
     "Sport Code": "PedA", 
     "Sport Name": "Tennis", 
-    "Rating": 2
+    "Rating": 4
   }
   ]

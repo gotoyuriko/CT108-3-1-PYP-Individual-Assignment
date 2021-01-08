@@ -1,0 +1,22 @@
+[
+  {
+    "Coach ID": "CO7E44076D",
+    "Description": "Always contributes vigorously to the efforts of the team, whether as a leader or a team member. Understands own weaknesses and others’ strengths and goes to the right people for help. Sympathetically helps others to address their weaknesses."
+  },
+  {
+    "Coach ID": "COABC4E6B3",
+    "Description": "Applies professional experience and/or knowledge of people well to forecast outcomes with at least 75% accuracy. "
+  },
+  {
+    "Coach ID": "CO50B6F44A",
+    "Description": "Good at organizing own work and usually finishes priority tasks on time, but there is less evidence of organizing the work of the team. "
+  },
+  {
+    "Coach ID": "CO3KJUZBNU",
+    "Description": "Does not follow instructions well. He misses out steps and does not check thoroughly enough. "
+  },
+  {
+    "Coach ID": "COBFX5MU88",
+    "Description": "From a set of data, he is able to establish a principle, or work out a rule, or suggest a reason for failure or success. His analysis is usually accurate but not original."
+  }
+]
