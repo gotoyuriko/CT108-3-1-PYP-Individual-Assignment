@@ -1,18 +1,21 @@
 import file_handle as f
+import student_registered as st_r
 
 
 def view_details():
     continuey = "y"
     while continuey == "y":
-        print("====================================================\n\n\t*** View Datail of ***\n\ta. Sport\n\tb. Sport Schedule")
+        print("====================================================\n\n\t*** View Datail of ***\n\ta. Sport\n\tb. Sport Schedule\n\tc. Exit")
 
         choice = input("\n\tEnter your choice: ")
         if choice == "a":
             view_details_a()
         elif choice == "b":
             view_details_b()
+        elif choice == "c":
+            break
         else:
-            print("\n\tPlease Enter a or b")
+            print("\n\tPlease Enter a ~ c")
 
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
         if continuey != "y":
@@ -65,6 +68,18 @@ def student_signup():
     student_list = f.student_read()
     student_list.append(student)
     f.student_write(student_list)
+
+    check_login = input("\n\tDo you want to login or go back to menu?")
+    try:
+        check_login = int(check_login)
+        if check_login == 1:
+            st_r.student_login()
+        elif check_login == 2:
+            return
+        else:
+            print("\n\tPlease enter the Number")
+    except:
+        print("\n\tPlease Enter the Number")
 
 
 def select_coach(student):

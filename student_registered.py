@@ -25,7 +25,7 @@ def student_login():
 def view_details(student_id):
     continuey = "y"
     while continuey == "y":
-        print("====================================================\n\n\t*** View Datail of ***\n\ta. Coach\n\tb. Self-Record\n\tc. Registered Sport Schedule")
+        print("====================================================\n\n\t*** View Datail of ***\n\ta. Coach\n\tb. Self-Record\n\tc. Registered Sport Schedule\n\td. Exit")
 
         choice = input("\n\tEnter your choice: ")
         if choice == "a":
@@ -34,6 +34,8 @@ def view_details(student_id):
             view_details_b(student_id)
         elif choice == "c":
             view_details_c(student_id)
+        elif choice == "d":
+            break
         else:
             print("\n\tPlease Enter a ~ c")
 
@@ -103,7 +105,7 @@ def modify_selfrecord(student_id):
             continue_modify = "m"
             coach_name = ""
             while continue_modify == "m":
-                print("\n*** Modify Records of Self-Record ***\n\n\tWhich record do you want to modify?\n\t1. Your Email\n\t2. Password\n\t3. Your Name\n\t4. Select Coach")
+                print("\n*** Modify Records of Self-Record ***\n\n\tWhich record do you want to modify?\n\t1. Your Email\n\t2. Password\n\t3. Your Name\n\t4. Select Coach\n\t5. Exit")
                 num = input("\n\tEnter your choice: ")
                 try:
                     num = int(num)
@@ -123,6 +125,8 @@ def modify_selfrecord(student_id):
                         student["Name"] = input("\n\tPlease Enter your name: ")
                     elif num == 4:
                         coach_name = st_a.select_coach(student)
+                    elif num == 5:
+                        return
                     else:
                         print("The number is out of range")
                         continue
@@ -131,7 +135,7 @@ def modify_selfrecord(student_id):
                     continue
 
                 continue_modify = input(
-                    "\n\tEnter \'m\' : continue to modify, or any key: back ")
+                    "\n\tEnter \'m\' (continue to modify), or any key(back): ")
 
             # udpate student records into student file
             f.student_write(student_list)
@@ -176,7 +180,8 @@ def feedback_star(student_id):
         if rating["Coach ID"] == coach_id:
             # get feedback
             feedback["Coach ID"] = rating["Coach ID"]
-            feedback["Description"] = input("Please give him/her feedbacks")
+            feedback["Description"] = input(
+                "\n\tPlease give him/her feedbacks: ")
 
             # read count and actual rating(float)
             count = rating["Count"]
@@ -205,8 +210,8 @@ def feedback_star(student_id):
                         elif rating_ave >= 4.5 and rating_ave <= 5.0:
                             rating["Rating"] = 5
 
-                        print("\n\tYour rating:", new_rating)
                         print("\t★★★ Thank you !! ★★★\n")
+                        break
                     else:
                         print("\n\tThe number is out of range!!")
                         continue

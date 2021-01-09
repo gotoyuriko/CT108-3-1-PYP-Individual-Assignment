@@ -2,13 +2,13 @@
   {
     "Student ID": "naruto@mail.com", 
     "Password": "wL8mpQ", 
-    "Name": "Sasuke", 
+    "Name": "Naruto", 
     "Coach ID": "CO3KJUZBNU"
   }, 
   {
     "Student ID": "sasuke@mail.com", 
     "Password": "j2snSc", 
-    "Name": "Naruto", 
+    "Name": "Sasuke", 
     "Coach ID": "COABC4E6B3"
   },
   {

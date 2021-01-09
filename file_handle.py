@@ -25,10 +25,10 @@ def coach_write(coach_list):
 
 def sport_center_read():
     with open("sport_center.txt") as sportcenterf:
-        sportcenter_data = sportcenterf.read()
-        sportcenter_list = json.loads(sportcenter_data)
+        sport_center_data = sportcenterf.read()
+        sport_center_list = json.loads(sport_center_data)
 
-    return sportcenter_list
+    return sport_center_list
 
 
 def sport_read():

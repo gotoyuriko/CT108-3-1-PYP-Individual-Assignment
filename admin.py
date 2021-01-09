@@ -12,6 +12,7 @@ def admin_login():  # Login to Access System.
 
         admin_dict = f.admin_login_read()
 
+        # username:christiankawaii   password:TP3875038503
         if admin_username in admin_dict and admin_dict[admin_username] == admin_password:
             return True
         else:
@@ -24,7 +25,7 @@ def admin_login():  # Login to Access System.
 def admin_add():  # Add Record
     continuey = "y"
     while continuey == "y":
-        print("====================================================\n\n\tAdd Records of\n\ta. Coach\n\tb. Sport\n\tc. Sport Schedule")
+        print("====================================================\n\n\tAdd Records of\n\ta. Coach\n\tb. Sport\n\tc. Sport Schedule\n\td. Exit")
 
         choice = input("\n\tEnter your choice: ")
         if choice == "a":
@@ -33,8 +34,10 @@ def admin_add():  # Add Record
             admin_add_b()
         elif choice == "c":
             admin_add_c()
+        elif choice == "d":
+            break
         else:
-            print("\n\tPlease Enter a ~ c")
+            print("\n\tPlease Enter a ~ d")
 
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
         if continuey != "y":
@@ -68,33 +71,37 @@ def admin_add_a():  # Add Record of Coach
 
     # Check whether the input of Sport center code exits or not
     flag = 0
-    while 1:
+    while flag == 0:
         sport_center_code = input("\tSport Center Code: ")
         sport_center_list = f.sport_center_read()
         for sport_center in sport_center_list:
-            if sport_center == sport_center_code:
+            if sport_center["Sport Center Code"] == sport_center_code:
                 coach["Sport Center Code"] = sport_center_code
                 coach["Sport Center Name"] = sport_center["Sport Center Name"]
                 flag = 1
+                break
         if flag == 1:
             break
         else:
             print("\n\tThere is no", sport_center_code, "in this system")
+            continue
 
     # Check whether the input of sport code exits or not
     flag = 0
-    while 1:
+    while flag == 0:
         sport_code = input("\tSport Code: ")
         sport_list = f.sport_read()
-        for sport_center in sport_list:
-            if sport_center == sport_code:
+        for sport in sport_list:
+            if sport["Sport Code"] == sport_code:
                 coach["Sport Code"] = sport_code
-                coach["Sport Name"] = sport_center["Sport Name"]
+                coach["Sport Name"] = sport["Sport Name"]
                 flag = 1
+                break
         if flag == 1:
             break
         else:
             print("\n\tThere is no", sport_code, "in this system")
+            continue
 
     coach["Rating"] = 0
 
@@ -111,7 +118,8 @@ def admin_add_a():  # Add Record of Coach
 def admin_add_b():  # Add Record of Sport
     sport = {}
     sport_list = f.sport_read()
-    while 1:
+    flag = 0
+    while flag == 0:
         print("\n*** Add Records of Sport ***\n\n\tPlease Fill in your information below")
         sport_code = input("\tSport Code: ")
         sport_name = input("\tSport Name: ")
@@ -121,18 +129,21 @@ def admin_add_b():  # Add Record of Sport
             if sport["Sport Code"] == sport_code or sport["Sport Name"] == sport_name:
                 print("\n\t"+sport_code, "or",
                       sport_name, " are already stored")
-                continue
+                flag = 1
 
-        sport["Sport Code"] = sport_code
-        sport["Sport Name"] = sport_name
-        sport["Description"] = input("\tDescribe the sport: ")
-        break
+        if flag == 1:
+            continue
+        else:
+            sport["Sport Code"] = sport_code
+            sport["Sport Name"] = sport_name
+            sport["Description"] = input("\tDescribe the sport: ")
 
-    sport_list.append(sport)
-    f.sport_write(sport_list)
+            sport_list.append(sport)
+            f.sport_write(sport_list)
 
-    print("\n\t★★★ Complete ★★★\n")
-    print_records(sport)
+            print("\n\t★★★ Complete ★★★\n")
+            print_records(sport)
+            break
 
 
 def admin_add_c():  # Add Record of schedule
@@ -168,7 +179,7 @@ def admin_add_c():  # Add Record of schedule
 def admin_display():  # Display All Records
     continuey = "y"
     while continuey == "y":
-        print("====================================================\n\n\ta. Coach\n\tb. Sport\n\tc. Registered Students")
+        print("====================================================\n\n\ta. Coach\n\tb. Sport\n\tc. Registered Students\n\td. Exit")
         choice = input("\n\tEnter your choice: ")
         if choice == "a":
             admin_display_a()
@@ -176,8 +187,10 @@ def admin_display():  # Display All Records
             admin_display_b()
         elif choice == "c":
             admin_display_c()
+        elif choice == "d":
+            break
         else:
-            print("\n\tPlease Enter a ~ c")
+            print("\n\tPlease Enter a ~ d")
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
         if continuey != "y":
             break
@@ -210,7 +223,7 @@ def admin_display_c():  # Display All Records  of Registered Students
 def admin_search():  # Search Specific Records of
     continuey = "y"
     while continuey == "y":
-        print("====================================================\n\n\ta. Coach by Coach ID\n\tb. Coach by overall performance (Rating)\n\tc. Sport by Sport ID\n\td. Student by Student ID")
+        print("====================================================\n\n\ta. Coach by Coach ID\n\tb. Coach by overall performance (Rating)\n\tc. Sport by Sport ID\n\td. Student by Student ID\n\te. Exit")
         choice = input("\n\tEnter your choice: ")
         if choice == "a":
             admin_search_a()
@@ -220,8 +233,10 @@ def admin_search():  # Search Specific Records of
             admin_search_c()
         elif choice == "d":
             admin_search_d()
+        elif choice == "e":
+            break
         else:
-            print("\n\tPlease Enter a ~ d")
+            print("\n\tPlease Enter a ~ e")
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
         if continuey != "y":
             break
@@ -274,7 +289,7 @@ def admin_search_d():  # Search Specific Records of Student by Student ID
 def admin_sort():  # Sort and Display Record
     continuey = "y"
     while continuey == "y":
-        print("====================================================\n\n\ta. Coaches in ascending order by names.\n\tb. Coaches Hourly Pay Rate in ascending order\n\tc. Coaches Overall Performance in ascending order")
+        print("====================================================\n\n\ta. Coaches in ascending order by names.\n\tb. Coaches Hourly Pay Rate in ascending order\n\tc. Coaches Overall Performance in ascending order\n\td. Exit")
         choice = input("\n\tEnter your choice: ")
         if choice == "a":
             admin_sort_a()
@@ -282,8 +297,10 @@ def admin_sort():  # Sort and Display Record
             admin_sort_b()
         elif choice == "c":
             admin_sort_c()
+        elif choice == "d":
+            break
         else:
-            print("\n\tPlease Enter a ~ c")
+            print("\n\tPlease Enter a ~ d")
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
         if continuey != "y":
             break
@@ -307,7 +324,7 @@ def admin_sort_c():  # Coaches Overall Performance in ascending order
 def admin_modify():  # Modify Record
     continuey = "y"
     while continuey == "y":
-        print("====================================================\n\n\ta. Coach\n\tb. Sport\n\tc. Sport Schedule")
+        print("====================================================\n\n\ta. Coach\n\tb. Sport\n\tc. Sport Schedule\n\td. Exit")
         choice = input("\n\tEnter your choice: ")
         if choice == "a":
             admin_modify_a()
@@ -316,8 +333,10 @@ def admin_modify():  # Modify Record
         # Sport Schedule
         elif choice == "c":
             admin_modify_c()
+        elif choice == "d":
+            break
         else:
-            print("\nPlease Enter a ~ c")
+            print("\n\tPlease Enter a ~ d")
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
         if continuey != "y":
             break
@@ -470,14 +489,15 @@ def modify_coach(num, coach):  # modify coaches
         elif num == 6:
             # Check whether the input of Sport center code exits or not
             flag = 0
-            while 1:
+            while flag == 0:
                 sport_center_code = input("\tSport Center Code: ")
                 sport_center_list = f.sport_center_read()
                 for sport_center in sport_center_list:
-                    if sport_center == sport_center_code:
+                    if sport_center["Sport Center Code"] == sport_center_code:
                         coach["Sport Center Code"] = sport_center_code
                         coach["Sport Center Name"] = sport_center["Sport Center Name"]
                         flag = 1
+                        break
                 if flag == 1:
                     break
                 else:
@@ -485,14 +505,15 @@ def modify_coach(num, coach):  # modify coaches
         elif num == 7:
             # Check whether the input of sport code exits or not
             flag = 0
-            while 1:
+            while flag == 0:
                 sport_code = input("\tSport Code: ")
                 sport_list = f.sport_read()
                 for sport_center in sport_list:
-                    if sport_center == sport_code:
+                    if sport_center["Sport Code"] == sport_code:
                         coach["Sport Code"] = sport_code
                         coach["Sport Name"] = sport_center["Sport Name"]
                         flag = 1
+                        break
                 if flag == 1:
                     break
                 else:
