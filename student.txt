@@ -1,20 +1,38 @@
 [
   {
-    "Student ID": "naruto@mail.com", 
+    "Student ID": "daffa@mail.com", 
     "Password": "wL8mpQ", 
-    "Name": "Naruto", 
+    "Name": "Daffa", 
     "Coach ID": "CO3KJUZBNU"
   }, 
   {
-    "Student ID": "sasuke@mail.com", 
+    "Student ID": "willy@mail.com", 
     "Password": "j2snSc", 
-    "Name": "Sasuke", 
+    "Name": "Willy", 
     "Coach ID": "COABC4E6B3"
   },
   {
-    "Student ID": "sakura@mail.com", 
+    "Student ID": "rachel@mail.com", 
     "Password": "u28kP3", 
-    "Name": "Sakura", 
+    "Name": "Rachel", 
     "Coach ID": "CO7E44076D"
+  },
+  {
+    "Student ID": "christian@mail.com", 
+    "Password": "U7BanQ", 
+    "Name": "Christian", 
+    "Coach ID": "COBFX5MU88"
+  }, 
+  {
+    "Student ID": "xavvyro@mail.com", 
+    "Password": "szJ9fp", 
+    "Name": "Xavvyro", 
+    "Coach ID": "COABC4E6B3"
+  },
+  {
+    "Student ID": "yuriko@mail.com", 
+    "Password": "QyU44f", 
+    "Name": "Yuriko", 
+    "Coach ID": "CO50B6F44A"
   }
   ]

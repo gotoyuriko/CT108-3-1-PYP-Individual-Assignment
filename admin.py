@@ -12,7 +12,7 @@ def admin_login():  # Login to Access System.
 
         admin_dict = f.admin_login_read()
 
-        # username:christiankawaii   password:TP3875038503
+        # username:reachamspoaca2137   password:e2wZPmKV7rPCWp8h
         if admin_username in admin_dict and admin_dict[admin_username] == admin_password:
             return True
         else:
