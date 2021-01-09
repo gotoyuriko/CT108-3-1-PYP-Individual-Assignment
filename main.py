@@ -11,7 +11,7 @@ try:
     if user == 1:
         if ad.admin_login():  # 1. Admin
             while 1:
-                print("\n*** Admin Menu ***\n\n\t1. Add Record\n\t2. Display All Records\n\t3. Search Specific Record\n\t4. Sort and    Display Record\n\t5. Modify Record\n\t6. Exit")
+                print("\n*** Admin Menu ***\n\n\t1. Add Record\n\t2. Display All Records\n\t3. Search Specific Record\n\t4. Sort and Display Record\n\t5. Modify Record\n\t6. Exit")
                 choice = input("\n\tEnter your choice: ")
                 try:
                     choice = int(choice)

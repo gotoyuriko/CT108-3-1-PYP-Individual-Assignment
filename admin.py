@@ -53,8 +53,13 @@ def admin_add_a():  # Add Record of Coach
     # check whether Horly Rate (RM/h) is number or not
     while 1:
         try:
-            coach["Horly Rate (RM/h)"] = int(input("\tHorly Rate (RM/h): "))
-            break
+            hourly_rate = int(input("\tHorly Rate (RM/h): "))
+            if hourly_rate >= 100 and hourly_rate <= 500:
+                coach["Horly Rate (RM/h)"] = hourly_rate
+                break
+            else:
+                print("\n\tHorly Rate should be 100(RM/h)-500RM(RM/h).Please try again.")
+                continue
         except:
             print("\n\tPlease Enter the number")
 
@@ -62,6 +67,7 @@ def admin_add_a():  # Add Record of Coach
     coach["Adress"] = input("\tAdress: ")
 
     # Check whether the input of Sport center code exits or not
+    flag = 0
     while 1:
         sport_center_code = input("\tSport Center Code: ")
         sport_center_list = f.sport_center_read()
@@ -69,9 +75,14 @@ def admin_add_a():  # Add Record of Coach
             if sport_center == sport_center_code:
                 coach["Sport Center Code"] = sport_center_code
                 coach["Sport Center Name"] = sport_center["Sport Center Name"]
-        print("\n\tThere is no", sport_center_code, "in this system")
+                flag = 1
+        if flag == 1:
+            break
+        else:
+            print("\n\tThere is no", sport_center_code, "in this system")
 
     # Check whether the input of sport code exits or not
+    flag = 0
     while 1:
         sport_code = input("\tSport Code: ")
         sport_list = f.sport_read()
@@ -79,7 +90,11 @@ def admin_add_a():  # Add Record of Coach
             if sport_center == sport_code:
                 coach["Sport Code"] = sport_code
                 coach["Sport Name"] = sport_center["Sport Name"]
-        print("\n\tThere is no", sport_code, "in this system")
+                flag = 1
+        if flag == 1:
+            break
+        else:
+            print("\n\tThere is no", sport_code, "in this system")
 
     coach["Rating"] = 0
 
@@ -319,7 +334,7 @@ def admin_modify_a():  # modify coach
             if coach_id == coach["Coach ID"]:
                 continue_modify = "m"
                 while continue_modify == "m":
-                    print("\n*** Which record do you want to modify?***\n\n\t1. Name\n\t2. Date Joined\n\t3. Date Terminated\n\t4. Horly Rate (RM/h)\n\t5. Phone\n\t6. Adress\n\t7. Sport Center\n\t8. Sport")
+                    print("\n*** Which record do you want to modify?***\n\n\t1. Name\n\t2. Date Joined and Date Terminated\n\t3. Horly Rate (RM/h)\n\t4. Phone\n\t5. Adress\n\t6. Sport Center\n\t7. Sport")
                     num = input("\n\tEnter your choice: ")
                     if modify_coach(num, coach):
                         continue
@@ -432,26 +447,29 @@ def modify_coach(num, coach):  # modify coaches
         if num == 1:
             coach["Name"] = input("\n\tPlease Enter Name: ")
         elif num == 2:
-            coach["Date Joined"] = input(
-                "\n\tPlease Enter Date Joined: ")
+            # modify dates
+            check_date(coach)
         elif num == 3:
-            coach["Date Terminated"] = input(
-                "\n\tPlease Enter Date Terminated: ")
-        elif num == 4:
             while 1:
                 try:
-                    coach["Horly Rate (RM/h)"] = int(
-                        input("\n\tPlease Enter Horly Rate (RM/h): "))
-                    break
+                    hourly_rate = int(input("\tHorly Rate (RM/h): "))
+                    if hourly_rate >= 100 and hourly_rate <= 500:
+                        coach["Horly Rate (RM/h)"] = hourly_rate
+                        break
+                    else:
+                        print(
+                            "\n\tHorly Rate should be 100(RM/h)-500RM(RM/h).Please try again.")
+                        continue
                 except:
                     print("\n\tPlease Enter the number")
-        elif num == 5:
+        elif num == 4:
             coach["Phone"] = input("\n\tPlease Enter Phone: ")
-        elif num == 6:
+        elif num == 5:
             coach["Adress"] = input(
                 "\n\tPlease Enter Adress: ")
-        elif num == 7:
+        elif num == 6:
             # Check whether the input of Sport center code exits or not
+            flag = 0
             while 1:
                 sport_center_code = input("\tSport Center Code: ")
                 sport_center_list = f.sport_center_read()
@@ -459,9 +477,14 @@ def modify_coach(num, coach):  # modify coaches
                     if sport_center == sport_center_code:
                         coach["Sport Center Code"] = sport_center_code
                         coach["Sport Center Name"] = sport_center["Sport Center Name"]
-                print("\n\tThere is no", sport_center_code, "in this system")
-        elif num == 8:
+                        flag = 1
+                if flag == 1:
+                    break
+                else:
+                    print("\n\tThere is no", sport_center_code, "in this system")
+        elif num == 7:
             # Check whether the input of sport code exits or not
+            flag = 0
             while 1:
                 sport_code = input("\tSport Code: ")
                 sport_list = f.sport_read()
@@ -469,7 +492,11 @@ def modify_coach(num, coach):  # modify coaches
                     if sport_center == sport_code:
                         coach["Sport Code"] = sport_code
                         coach["Sport Name"] = sport_center["Sport Name"]
-                print("\n\tThere is no", sport_code, "in this system")
+                        flag = 1
+                if flag == 1:
+                    break
+                else:
+                    print("\n\tThere is no", sport_code, "in this system")
     except:
         print("\n\tWrong Input")
 
