@@ -1,9 +1,11 @@
+# YURIKO GOTO
+# TP061843
 import admin as ad
 import student_all as st_a
 import student_registered as st_r
 
 
-print("\n*** Welcome to REAL CHAMPION APORT ACADEMY! ***\n\n\tWho are you?\n\t1. Admin\n\t2. All Students (Registered / Not-Registered)\n\t3. Registered Student")
+print("\n*** Welcome to REAL CHAMPION SPORT ACADEMY! ***\n\n\tWho are you?\n\t1. Admin\n\t2. All Students (Registered / Not-Registered)\n\t3. Registered Student")
 
 user = input("\n\tEnter the number: ")
 try:
@@ -46,7 +48,7 @@ try:
                 elif choice == 2:
                     st_a.student_signup()
                 elif choice == 3:
-                    print("\n\tLog Out")
+                    print("\n\t*** Log Out ***")
                     break
                 else:
                     print("\n\tPlease enter 1 ~ 3")
@@ -73,7 +75,7 @@ try:
                         print("\n*** Log Out ***")
                         break
                     else:
-                        print("\n\tPlease enter 1 ~ 6")
+                        print("\n\tPlease enter 1 ~ 4")
                         continue
                 except:
                     print("\n\t"+str(choice), "is not a number")

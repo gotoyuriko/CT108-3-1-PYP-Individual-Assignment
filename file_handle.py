@@ -97,5 +97,5 @@ def feedback_read():
 
 def feedback_write(feedback_list):
     with open("feedback.txt", "w") as feedbackf:
-        encode_rating = json.dumps(feedback_list)
-        feedbackf.write(encode_rating)
+        encode_feedback = json.dumps(feedback_list)
+        feedbackf.write(encode_feedback)

@@ -2,7 +2,7 @@ import file_handle as f
 import datetime as d
 
 
-def admin_login():  # Login to Access System.
+def admin_login():  # Admin Login System
     continuey = "y"
     while continuey == "y":
         print("\n*** Admin Log In ***\n\n\tEnter username and password")
@@ -35,13 +35,11 @@ def admin_add():  # Add Record
         elif choice == "c":
             admin_add_c()
         elif choice == "d":
-            break
+            return
         else:
             print("\n\tPlease Enter a ~ d")
 
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
-        if continuey != "y":
-            break
 
 
 def admin_add_a():  # Add Record of Coach
@@ -55,8 +53,9 @@ def admin_add_a():  # Add Record of Coach
 
     # check whether Horly Rate (RM/h) is number or not
     while 1:
+        hourly_rate = input("\tHorly Rate (RM/h): ")
         try:
-            hourly_rate = int(input("\tHorly Rate (RM/h): "))
+            hourly_rate = int(hourly_rate)
             if hourly_rate >= 100 and hourly_rate <= 500:
                 coach["Horly Rate (RM/h)"] = hourly_rate
                 break
@@ -65,6 +64,7 @@ def admin_add_a():  # Add Record of Coach
                 continue
         except:
             print("\n\tPlease Enter the number")
+            continue
 
     coach["Phone"] = input("\tPhone: ")
     coach["Adress"] = input("\tAdress: ")
@@ -79,7 +79,6 @@ def admin_add_a():  # Add Record of Coach
                 coach["Sport Center Code"] = sport_center_code
                 coach["Sport Center Name"] = sport_center["Sport Center Name"]
                 flag = 1
-                break
         if flag == 1:
             break
         else:
@@ -96,7 +95,6 @@ def admin_add_a():  # Add Record of Coach
                 coach["Sport Code"] = sport_code
                 coach["Sport Name"] = sport["Sport Name"]
                 flag = 1
-                break
         if flag == 1:
             break
         else:
@@ -120,7 +118,7 @@ def admin_add_b():  # Add Record of Sport
     sport_list = f.sport_read()
     flag = 0
     while flag == 0:
-        print("\n*** Add Records of Sport ***\n\n\tPlease Fill in your information below")
+        print("\n*** Add Records of Sport ***\n\n\tPlease Fill in the Sport Code and Sport Name")
         sport_code = input("\tSport Code: ")
         sport_name = input("\tSport Name: ")
 
@@ -151,7 +149,7 @@ def admin_add_c():  # Add Record of schedule
     schedule_list = f.schedule_read()
     while 1:
         print(
-            "\n*** Add Records of Schedule ***\n\n\tPlease Fill in your information below")
+            "\n*** Add Records of Schedule ***\n\n\tPlease Enter the Coach ID to set up schedule")
 
         coach_id = input("\tCoach ID: ")
         coach_list = f.coach_read()
@@ -179,7 +177,7 @@ def admin_add_c():  # Add Record of schedule
 def admin_display():  # Display All Records
     continuey = "y"
     while continuey == "y":
-        print("====================================================\n\n\ta. Coach\n\tb. Sport\n\tc. Registered Students\n\td. Exit")
+        print("====================================================\n\n\ta. Coach\n\tb. Sport\n\tc. Registered Students\n\td. Coach FeedBack\n\te. Exit")
         choice = input("\n\tEnter your choice: ")
         if choice == "a":
             admin_display_a()
@@ -188,18 +186,18 @@ def admin_display():  # Display All Records
         elif choice == "c":
             admin_display_c()
         elif choice == "d":
-            break
+            admin_display_d()
+        elif choice == "e":
+            return
         else:
-            print("\n\tPlease Enter a ~ d")
+            print("\n\tPlease Enter a ~ e")
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
-        if continuey != "y":
-            break
 
 
 def admin_display_a():  # Display All Records Coachs
     coach_list = f.coach_read()
 
-    print("\n*** Here are all records of coache ***\n")
+    print("\n*** Here are all records of coach ***\n")
     for coach in coach_list:
         print_records(coach)
 
@@ -220,6 +218,18 @@ def admin_display_c():  # Display All Records  of Registered Students
         print_records(student)
 
 
+def admin_display_d():
+    feedback_list = f.feedback_read()
+    coach_list = f.coach_read()
+    print("\n*** Here are all records of feedback ***\n")
+    for feedback in feedback_list:
+        for coach in coach_list:
+            if feedback["Coach ID"] == coach["Coach ID"]:
+                print("\tCoach Name:", coach["Coach ID"])
+                print("\tFeedback:", feedback["Description"])
+                print("")
+
+
 def admin_search():  # Search Specific Records of
     continuey = "y"
     while continuey == "y":
@@ -234,12 +244,10 @@ def admin_search():  # Search Specific Records of
         elif choice == "d":
             admin_search_d()
         elif choice == "e":
-            break
+            return
         else:
             print("\n\tPlease Enter a ~ e")
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
-        if continuey != "y":
-            break
 
 
 def admin_search_a():  # Search Specific Records of Coach by Coach ID
@@ -249,7 +257,7 @@ def admin_search_a():  # Search Specific Records of Coach by Coach ID
     while 1:
         coach_id = input("\n\tEnter Coach ID: ")
         if search_print(coach_list, coach_id, dict_key):
-            break
+            return
 
 
 def admin_search_b():  # Search Specific Records of Coach by overall performance (Rating)
@@ -257,10 +265,11 @@ def admin_search_b():  # Search Specific Records of Coach by overall performance
     coach_list = f.coach_read()
     dict_key = "Rating"
     while 1:
+        rating = input("\n\tEnter overall performance (Rating): ")
         try:
-            rating = int(input("\n\tEnter overall performance (Rating): "))
+            rating = int(rating)
             if search_print(coach_list, rating, dict_key):
-                break
+                return
         except:
             print("\n\tPlease Enter the Number.")
             continue
@@ -273,7 +282,7 @@ def admin_search_c():  # Search Specific Records of Sport by Sport ID
     while 1:
         sport_id = input("\n\tEnter Sport ID: ")
         if search_print(sport_list, sport_id, dict_key):
-            break
+            return
 
 
 def admin_search_d():  # Search Specific Records of Student by Student ID
@@ -281,9 +290,9 @@ def admin_search_d():  # Search Specific Records of Student by Student ID
     student_list = f.student_read()
     dict_key = "Student ID"
     while 1:
-        student_id = input("\n\tStudent ID: ")
+        student_id = input("\n\tEnter Student ID: ")
         if search_print(student_list, student_id, dict_key):
-            break
+            return
 
 
 def admin_sort():  # Sort and Display Record
@@ -298,12 +307,10 @@ def admin_sort():  # Sort and Display Record
         elif choice == "c":
             admin_sort_c()
         elif choice == "d":
-            break
+            return
         else:
             print("\n\tPlease Enter a ~ d")
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
-        if continuey != "y":
-            break
 
 
 def admin_sort_a():  # Sort Coaches in ascending order by names.
@@ -330,16 +337,13 @@ def admin_modify():  # Modify Record
             admin_modify_a()
         elif choice == "b":
             admin_modify_b()
-        # Sport Schedule
         elif choice == "c":
             admin_modify_c()
         elif choice == "d":
-            break
+            return
         else:
             print("\n\tPlease Enter a ~ d")
         continuey = input("\n\tEnter 'y' to continue or any key to back: ")
-        if continuey != "y":
-            break
 
 
 def admin_modify_a():  # modify coach
@@ -354,11 +358,12 @@ def admin_modify_a():  # modify coach
                 continue_modify = "m"
                 while continue_modify == "m":
                     print("\n*** Which record do you want to modify?***\n\n\t1. Name\n\t2. Date Joined and Date Terminated\n\t3. Horly Rate (RM/h)\n\t4. Phone\n\t5. Adress\n\t6. Sport Center\n\t7. Sport")
+
                     num = input("\n\tEnter your choice: ")
-                    if modify_coach(num, coach):
-                        continue
+                    modify_coach(num, coach, coach_id)
+
                     continue_modify = input(
-                        "\n\tEnter \'m\' : continue to modify, or any key: back ")
+                        "\n\tEnter \'m\' (continue to modify), or any key(back): ")
 
                     if continue_modify != "m":
                         f.coach_write(coach_list)
@@ -389,27 +394,37 @@ def admin_modify_b():  # Modify Sport
 def admin_modify_c():  # Modify Schedule
     print("\n*** Modify Record of Schedule ***")
     while 1:
-        coach_id = input("\n\tEnter Coach ID to modify: ")
+        print("\n\tSelect Coach\n")
         schedule_list = f.schedule_read()
-
         for schedule in schedule_list:
-            # check coach id
-            if coach_id == schedule["Coach ID"]:
-                coach_list = f.coach_read()
-                for coach in coach_list:
-                    if coach["Coach ID"] == coach_id:
-                        date, start_time, end_time = date_time(coach)
-                        schedule["Date"] = date
-                        schedule["Start Time"] = start_time
-                        schedule["End Time"] = end_time
-                        break
-                f.schedule_write(schedule_list)
-                print("\n\t★★★Complete★★★")
-                print_records(schedule)
-                return
+            print("\t"+str(schedule_list.index(schedule)+1) +
+                  ": ", schedule["Coach ID"])
+            print("\tDate:", schedule["Date"])
+            print("\tStart Time:", schedule["Start Time"])
+            print("\tEnd Time:", schedule["End Time"])
+            print()
 
-        print("\n\tThere is no " + coach_id + " in this sysmtem")
-        continue
+        num = input("\n\tChoose a number: ")
+        try:
+            num = int(num)
+            for schedule in schedule_list:
+                if num == (schedule_list.index(schedule)+1):
+                    coach_list = f.coach_read()
+                    for coach in coach_list:
+                        if coach["Coach ID"] == schedule["Coach ID"]:
+                            date, start_time, end_time = date_time(coach)
+                            schedule["Date"] = date
+                            schedule["Start Time"] = start_time
+                            schedule["End Time"] = end_time
+                    f.schedule_write(schedule_list)
+                    print("\n\t★★★Complete★★★")
+                    print_records(schedule)
+                    return
+            print("\n\tThe number is out of range")
+            continue
+        except:
+            print("\n\tPlease enter the number")
+            continue
 
 
 def print_records(dict_items):  # display records
@@ -419,11 +434,16 @@ def print_records(dict_items):  # display records
 
 
 def search_print(list, search_key, dict_key):  # serch key
+    flag = 0
     for dict in list:
         if search_key == dict[dict_key]:
             print("\n\t*** Here are the results ***\n")
             print_records(dict)
-            return True
+            flag = 1
+
+    if flag == 1:
+        return True
+
     print("\n\tWe couldn't find " + str(search_key) + ", please try again.")
     return False
 
@@ -460,7 +480,7 @@ def sort_print(key_name):  # sort
                 break
 
 
-def modify_coach(num, coach):  # modify coaches
+def modify_coach(num, coach, coach_id):  # modify coaches
     try:
         num = int(num)
         if num == 1:
@@ -470,8 +490,9 @@ def modify_coach(num, coach):  # modify coaches
             check_date(coach)
         elif num == 3:
             while 1:
+                hourly_rate = input("\tPlease Enter Horly Rate (RM/h): ")
                 try:
-                    hourly_rate = int(input("\tHorly Rate (RM/h): "))
+                    hourly_rate = int(hourly_rate)
                     if hourly_rate >= 100 and hourly_rate <= 500:
                         coach["Horly Rate (RM/h)"] = hourly_rate
                         break
@@ -481,6 +502,7 @@ def modify_coach(num, coach):  # modify coaches
                         continue
                 except:
                     print("\n\tPlease Enter the number")
+                    continue
         elif num == 4:
             coach["Phone"] = input("\n\tPlease Enter Phone: ")
         elif num == 5:
@@ -512,12 +534,22 @@ def modify_coach(num, coach):  # modify coaches
                     if sport_center["Sport Code"] == sport_code:
                         coach["Sport Code"] = sport_code
                         coach["Sport Name"] = sport_center["Sport Name"]
+
+                        # we need to change sport code in the schedule file
+                        schedule_list = f.schedule_read()
+                        for schedule in schedule_list:
+                            if schedule["Coach ID"] == coach_id:
+                                schedule["Sport Code"] = sport_code
+                                f.schedule_write(schedule_list)
+
                         flag = 1
                         break
                 if flag == 1:
                     break
                 else:
                     print("\n\tThere is no", sport_code, "in this system")
+        else:
+            print("\n\tPlease enter 1 ~ 7")
     except:
         print("\n\tWrong Input")
 
@@ -547,7 +579,6 @@ def date_time(coach):  # get input of  schedule
             else:
                 print("\n\tYour Date and Time is not correct. Pleaset try again.")
                 continue
-
         except:
             print("\n\tWrong Input. Please try again.")
             continue

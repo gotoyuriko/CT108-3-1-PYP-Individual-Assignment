@@ -1,7 +1,7 @@
 [
   {
     "Coach ID": "CO7E44076D",
-    "Description": "Always contributes vigorously to the efforts of the team, whether as a leader or a team member. Understands own weaknesses and others’ strengths and goes to the right people for help. Sympathetically helps others to address their weaknesses."
+    "Description": "Always contributes vigorously to the efforts of the team, whether as a leader or a team member. "
   },
   {
     "Coach ID": "COABC4E6B3",
@@ -17,6 +17,6 @@
   },
   {
     "Coach ID": "COBFX5MU88",
-    "Description": "From a set of data, he is able to establish a principle, or work out a rule, or suggest a reason for failure or success. His analysis is usually accurate but not original."
+    "Description": "From a set of data, he is able to establish a principle, or work out a rule, or suggest a reason for failure or success."
   }
 ]
