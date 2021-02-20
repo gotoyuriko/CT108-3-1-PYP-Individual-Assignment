@@ -46,7 +46,7 @@
     "Name": "Taylor Swift", 
     "Date Joined": "2018/10/03", 
     "Date Terminated": "2022/11/03", 
-    "Horly Rate (RM/h)":320,
+    "Horly Rate (RM/z
     "Phone": "6047330197", 
     "Adress": "1890 Boehm Village Sarawak", 
     "Sport Center Code": "SPh9sdR8", 
