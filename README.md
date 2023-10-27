@@ -1,8 +1,11 @@
 # CT108-3-1-PYP-Individual-Assignment
 
-```
-python3 main.py
-```
+### Usage
+
+To start the sport system, simply run the following command:
+
+```bash
+python main.py
 
 The Requirement of Sport Center System
 ```
