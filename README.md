@@ -8,8 +8,8 @@ To start the sport system, simply run the following command:
 python main.py
 ```
 
-The Requirement of Sport Center System
-
+### The Requirement of Sport Center System
+```
 Functionalities of Admin
   i. Login to Access System.
   ii. Add Records of
